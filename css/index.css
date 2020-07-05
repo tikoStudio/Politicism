@@ -7,6 +7,181 @@ box-sizing: border-box;
 body {
     margin: 0;
     height: 100vh;
+    width: 100vw;
     background-color: rgba(28,32,44,1);
     background-image: linear-gradient(120deg, #3D4151 0%, #1C202C 35% , #141824 80%);
+    font-family: 'Nunito Sans', sans-serif;
+    color: #fff;
 }
+
+/* --- END BG --- */
+
+/* --- LOGO --- */
+
+.logo__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wordLogo__img {
+    width: 80%;
+    margin-top: 10vh;
+}
+
+.logo__box {
+    background-color: #282C3A;
+    margin-top: 5vh;
+    height: 25vh;
+    width: 25vh;
+    border-radius: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconLogo__img {
+    height: 80%;
+}
+
+/* --- END LOGO --- */
+
+/* --- FORMS --- */
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vh;
+}
+
+.input__form {
+    width: 80%;
+    background-color: transparent;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    margin-bottom: 5vh;
+    color: #fff;
+}
+
+input::placeholder {
+    color: #fff;
+}
+
+input[type=text], input[type=password] {
+    border: none;
+    border-bottom: 1px solid #707070;
+}
+
+.checkbox {
+    width: 15vw;
+}
+
+.form__loginState {
+    margin-top: 5vh;
+    font-size: 1em;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+  }
+  
+/* Hide the browser's default checkbox */
+input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+  
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #282C3A;
+    border-radius: 25%;
+}
+  
+/* On mouse-over, add a grey background color */
+.form__loginState:hover input ~ .checkmark {
+    background-color: #404451;
+}
+  
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+/* Show the checkmark when checked */
+.form__loginState input:checked ~ .checkmark:after {
+    display: block;
+}
+  
+/* Style the checkmark/indicator */
+.form__loginState .checkmark:after {
+    /*left: 9px;
+    top: 5px;
+    width: 10px;
+    height: 20px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    transform: rotate(35deg);*/
+    background-image: url(../images/checkmark.svg);
+    background-repeat: no-repeat;
+    background-attachment: contain;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
+
+.page__switchers {
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.switch__pages {
+    margin: 0;
+}
+
+/* --- END FORMS --- */
+
+/* --- BUTTONS --- */
+
+.btn {
+    background-color: #282C3A;
+    border: 5px solid #FE7500;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 0.5em 2em;
+}
+
+/* --- END BUTTONS --- */
+
+/* --- TEXT --- */
+
+.a__pages {
+    color: #FE7500;
+    text-decoration: none;
+}
+
+/* --- END TEXT --- */
