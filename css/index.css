@@ -1,15 +1,16 @@
 * {
 box-sizing: border-box;
 }
+
   
 /*  --- BG --- */
 
 body {
     margin: 0;
-    height: 100vh;
     width: 100vw;
+    height: fit-content;
     background-color: rgba(28,32,44,1);
-    background-image: linear-gradient(120deg, #3D4151 0%, #1C202C 35% , #141824 80%);
+    /*background-image: linear-gradient(120deg, #3D4151 0%, #1C202C 35% , #141824 80%);*/
     font-family: 'Nunito Sans', sans-serif;
     color: #fff;
 }
@@ -26,18 +27,22 @@ body {
 
 .wordLogo__img {
     width: 80%;
-    margin-top: 10vh;
+    margin-top: 5vh;
 }
 
 .logo__box {
     background-color: #282C3A;
-    margin-top: 5vh;
+    margin-top: 2vh;
     height: 25vh;
     width: 25vh;
     border-radius: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.logo__box--none {
+    display: none;
 }
 
 .iconLogo__img {
@@ -53,6 +58,13 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.form__heading {
+    display: none;
+    text-align: center;
+    font-size: 3em;
+    margin: 1em 1.5em;
 }
 
 .form__section {
@@ -133,15 +145,6 @@ input[type=checkbox] {
   
 /* Style the checkmark/indicator */
 .form__loginState .checkmark:after {
-    /*left: 9px;
-    top: 5px;
-    width: 10px;
-    height: 20px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(35deg);
-    -ms-transform: rotate(35deg);
-    transform: rotate(35deg);*/
     background-image: url(../images/checkmark.svg);
     background-repeat: no-repeat;
     background-attachment: contain;
@@ -159,6 +162,19 @@ input[type=checkbox] {
 
 .switch__pages {
     margin: 0;
+}
+
+.switch__pages:last-child {
+    margin-bottom: 2vh;
+}
+
+#avatar {
+    height: 15vh;
+    display: none;
+}
+
+.form__avatar {
+    height: 15vh;
 }
 
 /* --- END FORMS --- */
@@ -185,3 +201,68 @@ input[type=checkbox] {
 }
 
 /* --- END TEXT --- */
+
+/* --- MEDIA QUERIES --- */
+@media all and (min-width: 1200px) {
+
+.container--duo {
+    display: flex;
+    flex-direction: row;
+}
+
+.logo__section, .form__section {
+    width: 50%;
+}
+
+/* --- LOGO --- */
+
+.wordLogo__img {
+    margin-top: 10vh;
+}
+
+.logo__box {
+    background-color: transparent;
+    height: 40vh;
+    width: 40vh;
+    margin-top: 15vh;
+}
+
+.logo__box--none {
+    display: block;
+}
+
+.iconLogo__img {
+    height: 100%;
+}
+
+/* --- END LOGO --- */
+
+/* --- FORM --- */
+
+.form__heading {
+    display: block;
+}
+
+/* --- FORM --- */
+
+.input__form {
+    margin-bottom: 5vh;
+}
+
+.page__switchers {
+    margin-top: 7vh;
+}
+
+.form__avatar {
+    height: 20vh;
+}
+
+/* --- END FORM --- */
+
+/* --- BUTTONS --- */
+
+.btn {
+    font-size: 2em;
+}
+
+} 
