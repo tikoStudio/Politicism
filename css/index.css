@@ -202,6 +202,61 @@ input[type=checkbox] {
 
 /* --- END TEXT --- */
 
+/* MAP */
+
+.cls-1,
+                .cls-2,
+                .cls-3,
+                .cls-4,
+                .cls-5 {
+                    fill: #e6e6e6;
+                }
+
+                .cls-1,
+                .cls-2 {
+                    stroke: #231f20;
+                }
+
+                .cls-1,
+                .cls-2,
+                .cls-4,
+                .cls-5 {
+                    stroke-miterlimit: 10;
+                }
+
+                .cls-2,
+                .cls-3,
+                .cls-5 {
+                    fill-rule: evenodd;
+                }
+
+                .cls-3,
+                .cls-4,
+                .cls-5 {
+                    stroke: #000;
+                }
+
+                .cls-3 {
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                }
+
+.map { /* temp */
+    height: 100vh;
+    width: 100vw;
+}
+
+svg {
+    height: 90vh;
+    width: 90vw;
+}
+
+.map g:hover *{
+    fill: #FE7500 !important;
+}
+
+/* END MAP */
+
 /* --- MEDIA QUERIES --- */
 @media all and (min-width: 1200px) {
 
