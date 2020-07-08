@@ -30,14 +30,23 @@ if (!empty($_POST)) {
                 $image = $_FILES['avatar']['name'];
                 uploadImage($image);
             } catch (Exception $e) {
+                $image = "noImg.png";
                 $error = $e->getMessage();
             }
         } //no else, field not required
 
         if (!isset($error)) {
             try {
-                //$user->save(); //safe in database as not activated user
-                //header("Location: activateMessage.php?u=" . $id['activationToken']);
+                $user->setAvatar($image);
+                $user->setLastLogin(date("Y-m-d"));
+                $user->setIp($_SERVER['REMOTE_ADDR']);
+                $user->createAccount(); //save user to database
+                session_start();
+                $_SESSION["userEmail"] = $_POST['email'];
+                $tokens = $user->tokenFromSession($_SESSION['userEmail']);
+                $_SESSION["userId"] = $tokens['id'];
+                $_SESSION["userToken"] = $tokens['token'];
+                header("Location: index.php");
             } catch (\Throwable $th) {
                 $error = $th->getMessage();
             }
@@ -54,7 +63,7 @@ if (!empty($_POST)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Politicism - Login</title>
+    <title>Politicism - Register</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 

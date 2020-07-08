@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php
+
+    session_start();
+    if (!isset($_SESSION['userId'])) {
+        header("Location: login.php");
+    }
+    $email = $_SESSION["userEmail"];
+
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>

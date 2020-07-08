@@ -21,8 +21,8 @@
                 $uploadOk = 0;
             }
             // Check file size
-            if ($_FILES["avatar"]["size"] > 1000000) { // file max size is 2mb
-                throw new Exception('The image you are trying to upload is to big, max 1mb!');
+            if ($_FILES["avatar"]["size"] > 2097152) { // file max size is 2mb
+                throw new Exception('The image you are trying to upload is to big, max 2MB!');
                 $uploadOk = 0;
             }
             // Allow certain file formats
