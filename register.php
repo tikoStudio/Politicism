@@ -1,3 +1,53 @@
+<?php
+
+include_once(__DIR__ . "/classes/UserAccount.php");
+include_once(__DIR__ . "/functions.php");
+
+if (!empty($_POST)) {
+    try {
+        $user = new UserAccount();
+
+        $user->setEmail($_POST['email']); //sets email
+        $user->setUsername($_POST['username']); //sets username
+        $user->setPassword($_POST['password']); //sets password
+
+        if ($_POST['password'] != $_POST['confirmpassword']) { //checks is password and confirm password match
+            $error = "Passwords are not matching!";
+        }
+
+        if ($user->availableEmail($user->getEmail())) { //check if email is not being used already
+            if ($user->validEmail()) { //checks is email is valid
+                // valid email
+            } else {
+                $error = "The email you entered is not valid!";
+            }
+        } else {
+            $error = "Email is already in use!";
+        }
+
+        if (!empty($_FILES['avatar']['name'])) { // upload profile picture
+            try {
+                $image = $_FILES['avatar']['name'];
+                uploadImage($image);
+            } catch (Exception $e) {
+                $error = $e->getMessage();
+            }
+        } //no else, field not required
+
+        if (!isset($error)) {
+            try {
+                //$user->save(); //safe in database as not activated user
+                //header("Location: activateMessage.php?u=" . $id['activationToken']);
+            } catch (\Throwable $th) {
+                $error = $th->getMessage();
+            }
+        }
+    } catch (\Throwable $th) {
+        $error = $th->getMessage();
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -2,7 +2,7 @@
 
 include_once(__DIR__ . "/Db.php");
 
-class Map
+class User
 {
     protected $email;
     protected $username;
@@ -23,9 +23,40 @@ class Map
  
     public function setEmail($email)
     {
+        if (empty($email)) {
+            throw new Exception("Email is required to make an account!");
+        }
+
         $this->email = $email;
 
         return $this;
+    }
+
+    public function validEmail()
+    {
+        $email = $this->getEmail();
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function availableEmail($email)
+    {
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("SELECT * FROM users WHERE email = :email LIMIT 1");
+        $statement->bindParam(":email", $email);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if ($result == false) {
+            // Email available
+            return true;
+        } else {
+            // Email not available
+            return false;
+        }
     }
 
     public function getUsername()
@@ -35,8 +66,11 @@ class Map
 
     public function setUsername($username)
     {
-        $this->username = $username;
+        if (empty($username)) {
+            throw new Exception("Username is required to make an account!");
+        }
 
+        $this->username = $username;
         return $this;
     }
 
@@ -47,6 +81,13 @@ class Map
 
     public function setPassword($password)
     {
+        if (empty($password)) {
+            throw new Exception("Password is required to make an account!");
+        }
+
+        $options = ['cost' => 12];
+        $password = password_hash($password, PASSWORD_DEFAULT, $options);
+        
         $this->password = $password;
 
         return $this;
