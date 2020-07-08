@@ -191,6 +191,7 @@ input[type=checkbox] {
 
 .form__avatar {
     height: 15vh;
+    width: 15vh;
 }
 
 /* --- END FORMS --- */
@@ -326,6 +327,7 @@ svg {
 
 .form__avatar {
     height: 20vh;
+    width: 20vh;
 }
 
 /* --- END FORM --- */

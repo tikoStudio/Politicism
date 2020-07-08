@@ -111,6 +111,8 @@ if (!empty($_POST)) {
             </div>
         </section>
     </div>
+
+    <script src="js/registerImg.js"></script>
 </body>
 
 </html>
