@@ -48,4 +48,27 @@ class UserAccount extends User
         $result = $statement->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public function checkLogin($email, $password)
+    {
+        //db conn
+        $conn = Db::getConnection();
+        //insert query
+        $statement = $conn->prepare("select * from users where email = :email limit 1");
+        $statement->bindParam(":email", $email);
+
+        //return result
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if (empty($result)) {
+            return false;
+        }
+        $hash = $result["password"];
+        if (password_verify($password, $hash)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

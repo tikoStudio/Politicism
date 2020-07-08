@@ -1,3 +1,32 @@
+<?php
+
+include_once(__DIR__ . "/classes/UserAccount.php");
+
+if (!empty($_POST)) {
+    $email = htmlspecialchars($_POST['email']);
+    $password = htmlspecialchars($_POST['password']);
+    if (!empty($email) && !empty($password)) {
+        $user = new UserAccount();
+        if ($user->checkLogin($email, $password)) {
+            session_start();
+            $_SESSION["userEmail"] = $email;
+            $tokens = $user->tokenFromSession($_SESSION['userEmail']);
+            $_SESSION["userId"] = $tokens['id'];
+            $_SESSION["userToken"] = $tokens['token'];
+            // change later to check if checkbox is ticked (if ticked use cooky else use session)
+
+            //redirect to index.php
+            header("Location: index.php");
+        } else {
+            $error = "Your name or password is incorrect";
+        }
+    } else {
+        $error = "All fields are required!";
+    }
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +68,7 @@
 
                 <input class="btn" type="submit" value="Login!">
 
-                <label class="form__loginState">Keep me logged in!
+                <label class="form__loginState">Keep me logged in! (WIP)
                     <input type="checkbox">
                     <span class="checkmark"></span>
                 </label>

@@ -87,7 +87,7 @@ class User
 
         $options = ['cost' => 12];
         $password = password_hash($password, PASSWORD_DEFAULT, $options);
-        
+
         $this->password = $password;
 
         return $this;
