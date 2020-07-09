@@ -4,13 +4,27 @@ include_once(__DIR__ . "/Db.php");
 
 class Map
 {
+    private $id;
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+    
     public function allRegionData()
     {
         //db conn
         $conn = Db::getConnection();
         //insert query
         $statement = $conn->prepare("select * from regions where id = :id");
-        $id = 1; // change to NOT HARD CODED
+        $id = $this->getId();
         $statement->bindParam(":id", $id);
 
         //return result
@@ -26,7 +40,7 @@ class Map
         $conn = Db::getConnection();
         //insert query
         $statement = $conn->prepare("select * from regions where id = :id");
-        $id = 1; //CHANGE TO NOT HARD CODED
+        $id = $this->getId();
         $statement->bindParam(":id", $id);
  
         //return result

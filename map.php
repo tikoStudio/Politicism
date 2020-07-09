@@ -108,23 +108,49 @@ $regionsStateData = $map->getRegionsStateData();
         //todo data: name, coa, state name, state coa, state borders
         //done data: color
         // todo: check user permits, residency,...
+
+
         region.childNodes.forEach(node => {
             //console.log(node)
             if (node.tagName == 'polygon') {
-                node.style.fill =
-                    "<?php echo $regionsStateData['color']; ?>";
+                let formData = new FormData();
+                formData.append('id', region.dataset.regionid)
+                fetch('ajax/regionInfo.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then((response) => response.json())
+                    .then((result) => {
+                        //console.log(result)
+                        node.style.fill = result.state.color;
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
             }
         })
     });
 
-    regions.forEach(element => {
-        element.addEventListener('click', () => {
-            if (element.dataset.regionid != null) {
-                // ajax call -> get info to display in div instead of hard coded
-                console.log(element.dataset.regionid)
-                console.log(
-                    `this is a region from <?php echo $regionsStateData['name']; ?>`
-                )
+    regions.forEach(region => {
+        region.addEventListener('click', () => {
+            if (region.dataset.regionid != null) {
+                let formData = new FormData();
+                formData.append('id', region.dataset.regionid)
+                fetch('ajax/regionInfo.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then((response) => response.json())
+                    .then((result) => {
+                        console.log(result)
+                        console.log(region.dataset.regionid)
+                        console.log(
+                            `this is a region from ${result.state.name}, and it's name is ${result.region.name}`
+                        )
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
             }
         })
     });
