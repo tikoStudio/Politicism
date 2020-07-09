@@ -192,6 +192,7 @@ input[type=checkbox] {
 .form__avatar {
     height: 15vh;
     width: 15vh;
+    object-fit: cover;
 }
 
 /* --- END FORMS --- */
@@ -217,7 +218,136 @@ input[type=checkbox] {
     text-decoration: none;
 }
 
+.orange {
+    color: #FE7500;
+}
+
+.section__title {
+    margin: 0.5em 0 0.5em 0.5em;
+}
+
+.region__info p, .leader__info p {
+    margin: 0 0.5em;
+    font-size: 1em !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    overflow: scroll;
+    height: 3vh;
+    font-weight: bold;
+}
+
+.section__div p {
+    margin: 0;
+}
+
+.section__div--small p {
+    font-size: 0.7em;
+}
+
+.section__titles {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.section__titles h3 {
+    margin-right: 0.5em;
+}
+
 /* --- END TEXT --- */
+
+/* --- BLOCKS --- */
+
+.section {
+    padding-bottom: 0.5em;
+    border-bottom: 1.5px solid #FE7500;
+}
+
+.section__div--large {
+    display: flex;
+    width: 50%;
+}
+
+.section__div--small {
+    width: 20%;
+    margin: 0 0.5em;
+}
+
+.section__div--medium {
+    width: 20%;
+    margin-top: -2em;
+    right: 1em;
+    position: absolute;
+}
+
+.unique__resource, .government__icon {
+    height: 100%;
+    width: 100%;
+}
+
+.section__content {
+    display: flex;
+}
+
+.coa {
+    min-height: 80px;
+    max-height: 80px;
+    min-width: 60px;
+    max-width: 60px;
+    margin-left: 0.5em;
+}
+
+.region__info, .leader__info {
+    margin: 0 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.section__state {
+    justify-content: space-between;
+}
+
+.div__state {
+    width: 75%;
+}
+
+.government__type {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1em;
+    /*margin-top: -3em;*/
+    font-size: 0.9em;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+/* --- END BLOCKS --- */
+
+/* --- GRAPHS --- */
+
+.graph__container {
+    width: 90%;
+    background-color: #5663FF;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.graph {
+    width: 55%;
+    background-color: #DA3232;
+}
+
+.graph p {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+/* --- END GRAPHS --- */
 
 /* MAP */
 

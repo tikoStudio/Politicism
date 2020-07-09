@@ -2,6 +2,12 @@
 
 include_once(__DIR__ . "/classes/Map.php");
 
+session_start();
+    if (!isset($_SESSION['userId'])) {
+        header("Location: login.php");
+    }
+    $email = $_SESSION["userEmail"];
+
 $map = new Map();
 $regionsStateData = $map->getRegionsStateData();
 
@@ -93,6 +99,7 @@ $regionsStateData = $map->getRegionsStateData();
             </g>
         </g>
     </svg>
+    <?php include_once('footer.inc.php'); ?>
 </body>
 <script>
     const regions = document.querySelectorAll('[data-regionId]');
