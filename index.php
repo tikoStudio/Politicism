@@ -68,6 +68,29 @@
                 <p>55%</p>
             </div>
         </div>
+
+        <div class="section__content">
+            <div class="section__div section__div--large div__region div--45">
+                <img class="coa coa--small" src="images/coa/Flanders.png" alt="Coat of arms of the current region">
+                <div class="region__info">
+                    <p>Flanders</p>
+                    <p class="orange">Attacking</p>
+                </div>
+            </div>
+            <div class="section__div">
+                <h1 class="orange">VS</h1>
+            </div>
+            <div class="section__div section__div--large div__region div--45 div--right">
+                <div class="region__info">
+                    <p>Wallonia</p>
+                    <p class="orange">Defending</p>
+                </div>
+                <img class="coa coa--small" src="images/coa/Wallonia.png" alt="Coat of arms of the current region">
+            </div>
+        </div>
+        <div class="btn__container">
+            <input class="btn btn--small" type="submit" value="fight!">
+        </div>
     </section>
 
 
