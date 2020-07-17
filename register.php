@@ -112,7 +112,7 @@ if (!empty($_POST)) {
         </section>
     </div>
 
-    <script src="js/registerImg.js"></script>
+    <script src="js/displayImg.js"></script>
 </body>
 
 </html>

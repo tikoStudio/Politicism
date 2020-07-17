@@ -114,7 +114,11 @@ input[type=text], input[type=password] {
     padding-left: 35px;
     cursor: pointer;
     font-size: 22px;
-  }
+}
+
+.form__changeAvatar {
+    margin-top: 2vh;
+}
   
 /* Hide the browser's default checkbox */
 input[type=checkbox] {
@@ -271,6 +275,28 @@ h1 {
 .factory__info p.name {
     font-weight: bold;
 }
+
+.userName {
+    width: 80%;
+    text-align: center;
+    overflow: scroll;
+    height: 5vh;
+    margin: 0 0.5em;
+}
+
+.userLevel {
+    margin: 0  1em;
+}
+
+.cash__titles, .cash__amount, .storage__titles {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cash__titles h3, .storage__titles h3, .cash__amount h3 {
+    margin: 0.5em 0.5em;
+}
+
 /* --- END TEXT --- */
 
 /* --- BLOCKS --- */
@@ -371,6 +397,25 @@ img {
     margin: 0.5em;
 }
 
+.section__user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section__money {
+    background-color: #141825;
+    /*height: 20vh;*/
+    margin-top: 5vh;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    padding-bottom: 1vh;
+}
+
 /* --- END BLOCKS --- */
 
 /* --- GRAPHS --- */
@@ -381,16 +426,25 @@ img {
     margin-left: auto;
     margin-right: auto;
     display: block;
+    border-radius: 5px;
+}
+
+.graph__container--black {
+    background-color: #282C3A;
 }
 
 .graph {
     width: 55%;
     background-color: #DA3232;
+    border-radius: 5px;
+}
+
+.graph--green {
+    background-color: #32DA59;
 }
 
 .graph p {
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+    margin: 0.5em;
 }
 
 /* --- END GRAPHS --- */
