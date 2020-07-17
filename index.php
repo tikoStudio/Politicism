@@ -93,6 +93,23 @@
         </div>
     </section>
 
+    <section>
+        <h2 class="section__title">Work</h2>
+        <div class="section__div section__div--large section__div--full">
+            <img class="coa coa--small" src="images/factory.png" alt="factory logo">
+            <div class="factory__info">
+                <p class="name">Mickey's crazy gold rush</p>
+                <p class="level">level 27</p>
+                <p class="foundationDate">Founded: 05/07/2020</p>
+            </div>
+        </div>
+
+        <div class="btn__container">
+            <input class="btn btn--small" type="submit" value="Work! +95%">
+        </div>
+
+    </section>
+
 
 
     <?php include_once('footer.inc.php'); ?>
