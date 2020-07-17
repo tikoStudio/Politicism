@@ -293,7 +293,7 @@ h1 {
     justify-content: space-between;
 }
 
-.cash__titles h3, .storage__titles h3, .cash__amount h3, .section__perks h2 {
+.cash__titles h3, .storage__titles h3, .cash__amount h3, .cash__amount h4, .section__perks h2 {
     margin: 0.5em 0.5em;
 }
 
@@ -372,7 +372,6 @@ h1 {
     display: flex;
     flex-direction: column;
     margin-right: 1em;
-    /*margin-top: -3em;*/
     font-size: 0.9em;
 }
 
@@ -410,7 +409,6 @@ img {
 
 .section__money {
     background-color: #141825;
-    /*height: 20vh;*/
     margin-top: 5vh;
     width: 90%;
     display: flex;

@@ -9,7 +9,13 @@ class User
     protected $password;
     protected $avatar;
     protected $xp;
+    protected $level;
+    protected $perksUsed;
+    protected $perkWar;
+    protected $perkEconomy;
+    protected $perkPolitics;
     protected $cash;
+    protected $bank;
     protected $currentRegionId;
     protected $lastLogin;
     protected $active;
@@ -185,6 +191,78 @@ class User
     public function setToken($token)
     {
         $this->token = $token;
+
+        return $this;
+    }
+
+    public function getBank()
+    {
+        return $this->bank;
+    }
+
+    public function setBank($bank)
+    {
+        $this->bank = $bank;
+
+        return $this;
+    }
+
+    public function getLevel()
+    {
+        return $this->level;
+    }
+
+    public function setLevel($level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    public function getPerksUsed()
+    {
+        return $this->perksUsed;
+    }
+
+    public function setPerksUsed($perksUsed)
+    {
+        $this->perksUsed = $perksUsed;
+
+        return $this;
+    }
+
+    public function getPerkWar()
+    {
+        return $this->perkWar;
+    }
+
+    public function setPerkWar($perkWar)
+    {
+        $this->perkWar = $perkWar;
+
+        return $this;
+    }
+
+    public function getPerkEconomy()
+    {
+        return $this->perkEconomy;
+    }
+
+    public function setPerkEconomy($perkEconomy)
+    {
+        $this->perkEconomy = $perkEconomy;
+
+        return $this;
+    }
+
+    public function getPerkPolitics()
+    {
+        return $this->perkPolitics;
+    }
+
+    public function setPerkPolitics($perkPolitics)
+    {
+        $this->perkPolitics = $perkPolitics;
 
         return $this;
     }

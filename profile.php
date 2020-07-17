@@ -35,8 +35,8 @@
 <section class="section__money">
     <div class=cash__titles><h3>cash</h3>
     <h3>bank</h3></div>
-    <div class="cash__amount"><h3>$5.000.000.000</h3>
-    <h3>$5.000.000.000</h3></div>
+    <div class="cash__amount"><h4>$95.000.000.000</h4>
+    <h4>$905.000.000.000</h4></div>
     <div class="btn__container">
             <input class="btn btn--small" type="submit" value="bank">
         </div>
