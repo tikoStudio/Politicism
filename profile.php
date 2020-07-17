@@ -20,7 +20,7 @@
         <input type="file" class="form-control white" name="avatar" id="avatar" accept="image/*">
         <!-- hidden btn for accepting new img -->
     </form>
-    <h3 class="userName">User name from naming</h3>
+    <h2 class="userName">User name from naming</h2>
 </section>
 
 <section class="section__level">
@@ -44,6 +44,15 @@
     <div class="btn__container">
             <input class="btn btn--small" type="submit" value="warehouse">
         </div>
+</section>
+
+<section class="section__perks">
+    <h2>perks 0/100</h2>
+    <div class="perks">
+        <div class="perk"><img src="images/perkWars.svg" alt="war perk image"><h3>war <br> (0)</h3></div>
+        <div class="perk"><img src="images/perkEconomy.svg" alt="economy perk image"><h3>economics <br> (0)</h3></div>
+        <div class="perk"><img src="images/perkPolitics.svg" alt="politics perk image"><h3>politics <br> (0)</h3></div>
+    </div>
 </section>
 
 
