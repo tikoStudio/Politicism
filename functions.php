@@ -40,3 +40,12 @@
             }
         }
     }
+
+    function get_percentage($total, $number) //GET PERCENTAGE
+    {
+        if ($total > 0) {
+            return round($number / ($total / 100), 2);
+        } else {
+            return 0;
+        }
+    }

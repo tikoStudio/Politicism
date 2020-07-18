@@ -30,10 +30,12 @@ if (!empty($_POST)) {
                 $image = $_FILES['avatar']['name'];
                 uploadImage($image);
             } catch (Exception $e) {
-                $image = "noImg.png";
+                $image = "";
                 $error = $e->getMessage();
             }
-        } //no else, field not required
+        } else {
+            $image = "";
+        }
 
         if (!isset($error)) {
             try {

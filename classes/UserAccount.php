@@ -71,4 +71,20 @@ class UserAccount extends User
             return false;
         }
     }
+
+    public function AllUserData()
+    {
+        //db conn
+        $conn = Db::getConnection();
+        //insert query
+        $statement = $conn->prepare("select * from users where token= :token");
+        $token = $this->getToken();
+
+        $statement->bindParam(":token", $token);
+ 
+        //return result
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }
