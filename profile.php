@@ -94,13 +94,13 @@ $levelData = $levelAccount->userLevelData();
             </h4>
         </div>
         <div class="btn__container">
-            <input class="btn btn--small" type="submit" value="bank">
+            <input class="btn btn--small btn__bank" type="submit" value="bank">
         </div>
         <div class="storage__titles">
             <h3>storage</h3>
         </div>
         <div class="btn__container">
-            <input class="btn btn--small" type="submit" value="warehouse">
+            <input class="btn btn--small btn__warehouse" type="submit" value="warehouse">
         </div>
     </section>
 

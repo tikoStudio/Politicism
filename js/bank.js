@@ -5,8 +5,6 @@ let errorField = popup.querySelector('.error')
 
 let playerCash = parseInt(cash)
 let playerBank = parseInt(bank)
-console.log(playerCash)
-console.log(playerBank)
 
 let error
 
@@ -89,4 +87,25 @@ btn.addEventListener('click', () => {
         } 
     }
 
+})
+
+let activeBtn = document.querySelector('.btn__bank')
+let blurred = document.querySelector('.blur')
+
+activeBtn.addEventListener('click', () => {
+    popup.style.display = "flex"
+    blurred.style.display = "flex"
+    document.querySelector('body').style.overflow = "hidden"
+})
+
+blurred.addEventListener('click', () => {
+    popup.style.display = "none"
+    blurred.style.display = "none"
+    document.querySelector('body').style.overflow = "scroll"
+})
+
+warehouseBtn = document.querySelector('.btn__warehouse')
+
+warehouseBtn.addEventListener('click', () => {
+    window.location.href = "warehouse.php";
 })
