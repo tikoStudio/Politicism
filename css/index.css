@@ -302,6 +302,10 @@ h1 {
     text-align: center;
 }
 
+.popup h4 {
+    margin: 0.5em;
+}
+
 /* --- END TEXT --- */
 
 /* --- BLOCKS --- */
@@ -431,6 +435,42 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.blur {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    filter: blur(2px);
+    background-color: rgba(226, 207, 207, 0.6);
+    top: 0;
+    z-index: 1000;
+    /*display: none;*/
+}
+
+.popup {
+    background-color: #141825;
+    padding-bottom: 2vh;
+    width: 75%;
+    position: absolute;
+    margin-left: 12.5%;
+    margin-top: 30%;
+    border-radius: 35px;
+    text-align: center;
+    z-index: 1099;
+    /*display: none;*/
+    display: flex; /* weghalen en met js plaatsen */
+    flex-direction: column;
+    align-items: center;
+}
+
+.bankCash {
+    margin-top: 1vh;
+}
+
+.error {
+    height: 20%;
+    overflow: scroll;
 }
 
 /* --- END BLOCKS --- */

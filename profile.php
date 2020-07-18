@@ -39,6 +39,24 @@ $levelData = $levelAccount->userLevelData();
 
 <body>
 
+    <div class="blur"></div>
+    <div class="popup popup__bank">
+        <h2>Bank</h2>
+        <h4 class="error"></h4>
+        <h4 class="cash__amount__popup">cash: $<?php echo number_format(htmlspecialchars($AllUserData['cash']), 0, ',', '.'); ?>
+        </h4>
+        <h4 class="bank__amount__popup">bank: $<?php echo number_format(htmlspecialchars($AllUserData['bank']), 0, ',', '.'); ?>
+        </h4>
+        <input type="number" name="transferAmount" id="transferAmount">
+        <div class="btn__container">
+            <input class="btn btn--small" type="submit" value="send">
+        </div>
+        <label class="form__loginState bankCash">retrieve cash
+            <input type="checkbox" id="check">
+            <span class="checkmark"></span>
+        </label>
+    </div>
+
     <section class="section__user">
         <form class="form form__changeAvatar" action="" method="post" enctype="multipart/form-data">
             <label for="avatar"><img class="form__avatar" src="<?php if (empty($AllUserData['avatar'])) {
@@ -58,7 +76,7 @@ $levelData = $levelAccount->userLevelData();
         </h3>
         <div class="graph__container graph__container--black">
             <div class="graph graph--green">
-                <p><?php echo get_percentage($levelData['xpNeeded'], $AllUserData['xp']).'%' ?>
+                <p><?php echo get_percentage($levelData['xpNeeded'], htmlspecialchars($AllUserData['xp'])).'%' ?>
                 </p>
             </div>
         </div>
@@ -70,8 +88,10 @@ $levelData = $levelAccount->userLevelData();
             <h3>bank</h3>
         </div>
         <div class="cash__amount">
-            <h4>$95.000.000.000</h4>
-            <h4>$905.000.000.000</h4>
+            <h4>$<?php echo number_format(htmlspecialchars($AllUserData['cash']), 0, ',', '.'); ?>
+            </h4>
+            <h4>$<?php echo number_format(htmlspecialchars($AllUserData['bank']), 0, ',', '.'); ?>
+            </h4>
         </div>
         <div class="btn__container">
             <input class="btn btn--small" type="submit" value="bank">
@@ -85,16 +105,20 @@ $levelData = $levelAccount->userLevelData();
     </section>
 
     <section class="section__perks">
-        <h2>perks 0/100</h2>
+        <h2>perks <?php echo htmlspecialchars($AllUserData['perksUsed']); ?>/100
+        </h2>
         <div class="perks">
             <div class="perk"><img src="images/perkWars.svg" alt="war perk image">
-                <h3>war <br> (0)</h3>
+                <h3>war <br> (<?php echo htmlspecialchars($AllUserData['perkWar']); ?>)
+                </h3>
             </div>
             <div class="perk"><img src="images/perkEconomy.svg" alt="economy perk image">
-                <h3>economics <br> (0)</h3>
+                <h3>economics <br> (<?php echo htmlspecialchars($AllUserData['perkEconomy']); ?>)
+                </h3>
             </div>
             <div class="perk"><img src="images/perkPolitics.svg" alt="politics perk image">
-                <h3>politics <br> (0)</h3>
+                <h3>politics <br> (<?php echo htmlspecialchars($AllUserData['perkPolitics']); ?>)
+                </h3>
             </div>
         </div>
     </section>
@@ -102,8 +126,14 @@ $levelData = $levelAccount->userLevelData();
 
     <?php include_once('footer.inc.php'); ?>
 
+    <script>
+        let token = '<?php echo $_GET['u']; ?>'
+        let cash = '<?php echo $AllUserData['cash']; ?>'
+        let bank = '<?php echo $AllUserData['bank']; ?>'
+    </script>
     <script src="js/displayImg.js"></script>
     <script src="js/displayLevelBar.js"></script>
+    <script src="js/bank.js"></script>
 </body>
 
 </html>
