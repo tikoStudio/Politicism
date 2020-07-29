@@ -93,11 +93,15 @@ form {
     color: #fff;
 }
 
+.input__form--minimal {
+    margin: 1vh 0;
+}
+
 input::placeholder {
     color: #fff;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=number] {
     border: none;
     border-bottom: 1px solid #707070;
 }
@@ -606,6 +610,8 @@ svg {
 .input__form {
     margin-bottom: 5vh;
 }
+
+
 
 .page__switchers {
     margin-top: 7vh;

@@ -47,7 +47,8 @@ $levelData = $levelAccount->userLevelData();
         </h4>
         <h4 class="bank__amount__popup">bank: $<?php echo number_format(htmlspecialchars($AllUserData['bank']), 0, ',', '.'); ?>
         </h4>
-        <input type="number" name="transferAmount" id="transferAmount">
+        <input class="input__form input__form--minimal" type="number" name="transferAmount" id="transferAmount"
+            placeholder="enter amount">
         <div class="btn__container">
             <input class="btn btn--small" type="submit" value="send">
         </div>
