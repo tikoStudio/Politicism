@@ -34,9 +34,18 @@ btn.addEventListener('click', () => {
                             })
                             .then((response) => response.json())
                             .then((result) => {
-                               // temp remove the thing from screen and add updated numbers on page
-                               document.querySelector('.bank__amount__popup').innerHTML = `bank: $${result['bank']}`
-                               document.querySelector('.cash__amount__popup').innerHTML = `cash: $${result['cash']}`
+                                // temp remove the thing from screen and add updated numbers on page
+                                document.querySelector('.bank__amount__popup').innerHTML = `bank: $${result['bank']}`
+                                document.querySelector('.cash__amount__popup').innerHTML = `cash: $${result['cash']}`
+                                document.querySelector('.cash__display').innerHTML = `$${result['cash']}`
+                                document.querySelector('.bank__display').innerHTML = `$${result['bank']}`
+                                playerCash = result['cash']
+                                playerBank = result['bank']
+                                error = ""
+                                errorField.innerHTML = error
+                                console.log(result['cash'])
+                                console.log(result['bank'])
+
                             })
                             .catch((error) => {
                             console.error('Error:', error);
@@ -72,8 +81,16 @@ btn.addEventListener('click', () => {
                             .then((response) => response.json())
                             .then((result) => {
                                // temp remove the thing from screen and add updated numbers on page
-                               document.querySelector('.bank__amount__popup').innerHTML = `bank: $${result['bank']}`
-                               document.querySelector('.cash__amount__popup').innerHTML = `cash: $${result['cash']}`
+                                document.querySelector('.bank__amount__popup').innerHTML = `bank: $${result['bank']}`
+                                document.querySelector('.cash__amount__popup').innerHTML = `cash: $${result['cash']}`
+                                document.querySelector('.cash__display').innerHTML = `$${result['cash']}`
+                                document.querySelector('.bank__display').innerHTML = `$${result['bank']}`
+                                playerCash = result['cash']
+                                playerBank = result['bank']
+                                error = ""
+                                errorField.innerHTML = error
+                                console.log(result['cash'])
+                                console.log(result['bank'])
                             })
                             .catch((error) => {
                             console.error('Error:', error);

@@ -88,9 +88,9 @@ $levelData = $levelAccount->userLevelData();
             <h3>bank</h3>
         </div>
         <div class="cash__amount">
-            <h4>$<?php echo number_format(htmlspecialchars($AllUserData['cash']), 0, ',', '.'); ?>
+            <h4 class="cash__display">$<?php echo number_format(htmlspecialchars($AllUserData['cash']), 0, ',', '.'); ?>
             </h4>
-            <h4>$<?php echo number_format(htmlspecialchars($AllUserData['bank']), 0, ',', '.'); ?>
+            <h4 class="bank__display">$<?php echo number_format(htmlspecialchars($AllUserData['bank']), 0, ',', '.'); ?>
             </h4>
         </div>
         <div class="btn__container">
