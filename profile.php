@@ -2,6 +2,7 @@
 
 include_once('classes/UserAccount.php');
 include_once('classes/UserLevel.php');
+include_once('classes/UserPerks.php');
 include_once('functions.php');
 
 session_start();
@@ -21,6 +22,9 @@ $levelAccount->setToken($_GET['u']);
 
 $AllUserData = $userAccount->AllUserData();
 $levelData = $levelAccount->userLevelData();
+
+$perks = new UserPerks();
+$perks->setId($_SESSION['userId']);
 
 ?>
 <!DOCTYPE html>
@@ -50,12 +54,36 @@ $levelData = $levelAccount->userLevelData();
         <input class="input__form input__form--minimal" type="number" name="transferAmount" id="transferAmount"
             placeholder="enter amount">
         <div class="btn__container">
-            <input class="btn btn--small" type="submit" value="send">
+            <input class="btn btn--small btnBank" type="submit" value="send">
         </div>
         <label class="form__loginState bankCash">retrieve cash
             <input type="checkbox" id="check">
             <span class="checkmark"></span>
         </label>
+    </div>
+
+    <div class="popup popup__perks">
+        <h2>perks</h2>
+        <h4 class="error errorPerk"></h4>
+
+        <h4 class="perk__total">
+            <?php echo htmlspecialchars($AllUserData['perksUsed']); ?>/100
+        </h4>
+        <select name="perks" id="perkTypes">
+            <option value="war">War</option>
+            <option value="economics">Economics</option>
+            <option value="management">Management</option>
+        </select>
+        <input class="input__form input__form--minimal" type="number" name="perkAmount" id="perkAmount"
+            placeholder="enter amount">
+
+        <h4 class="perkDisplay">war:</h4>
+        <h4 class="costDisplay">cost: 0</h4>
+
+        <div class="btn__container">
+            <input class="btn btn--small btnPerks" type="submit" value="send">
+        </div>
+
     </div>
 
     <section class="section__user">
@@ -110,15 +138,15 @@ $levelData = $levelAccount->userLevelData();
         </h2>
         <div class="perks">
             <div class="perk"><img src="images/perkWars.svg" alt="war perk image">
-                <h3>war <br> (<?php echo htmlspecialchars($AllUserData['perkWar']); ?>)
+                <h3 class="warPerkAmount">War <br> (<?php echo htmlspecialchars($AllUserData['perkWar']); ?>)
                 </h3>
             </div>
             <div class="perk"><img src="images/perkEconomy.svg" alt="economy perk image">
-                <h3>economics <br> (<?php echo htmlspecialchars($AllUserData['perkEconomy']); ?>)
+                <h3 class="economicsPerkAmount">Economics <br> (<?php echo htmlspecialchars($AllUserData['perkEconomy']); ?>)
                 </h3>
             </div>
-            <div class="perk"><img src="images/perkPolitics.svg" alt="politics perk image">
-                <h3>politics <br> (<?php echo htmlspecialchars($AllUserData['perkPolitics']); ?>)
+            <div class="perk"><img src="images/perkManagement.svg" alt="Management perk image">
+                <h3 class="managementPerkAmount">Management <br> (<?php echo htmlspecialchars($AllUserData['perkManagement']); ?>)
                 </h3>
             </div>
         </div>
@@ -131,10 +159,14 @@ $levelData = $levelAccount->userLevelData();
         let token = '<?php echo $_GET['u']; ?>'
         let cash = '<?php echo $AllUserData['cash']; ?>'
         let bank = '<?php echo $AllUserData['bank']; ?>'
+        let usedPerkPoints = parseInt(
+            '<?php echo htmlspecialchars($AllUserData['perksUsed']); ?>'
+        )
     </script>
     <script src="js/displayImg.js"></script>
     <script src="js/displayLevelBar.js"></script>
     <script src="js/bank.js"></script>
+    <script src="js/perks.js"></script>
 </body>
 
 </html>

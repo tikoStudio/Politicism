@@ -4,6 +4,7 @@ include_once(__DIR__ . "/Db.php");
 
 class User
 {
+    protected $id;
     protected $email;
     protected $username;
     protected $password;
@@ -21,6 +22,18 @@ class User
     protected $active;
     protected $ip;
     protected $token;
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     public function getEmail()
     {

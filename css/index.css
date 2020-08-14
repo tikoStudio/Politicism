@@ -106,6 +106,18 @@ input[type=text], input[type=password], input[type=number] {
     border-bottom: 1px solid #707070;
 }
 
+select {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #707070;
+    color: #fff;
+}
+
+option {
+    background-color: #707070;
+    
+}
+
 .checkbox {
     width: 15vw;
 }
@@ -430,7 +442,8 @@ img {
 .perks {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 15vh; /* temp */
+    margin-bottom: 16vh; /* temp */
+    margin: 0.5em;
 }
 
 .perk {
@@ -469,11 +482,6 @@ img {
 
 .bankCash {
     margin-top: 1vh;
-}
-
-.error {
-    height: 20%;
-    overflow: scroll;
 }
 
 /* --- END BLOCKS --- */

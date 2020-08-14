@@ -1,7 +1,7 @@
-let popup = document.querySelector('.popup__bank')
-let btn = popup.querySelector('.btn')
-let checkbox = popup.querySelector('#check')
-let errorField = popup.querySelector('.error')
+let popupBank = document.querySelector('.popup__bank')
+let btn = popupBank.querySelector('.btnBank')
+let checkbox = popupBank.querySelector('#check')
+let errorField = popupBank.querySelector('.error')
 
 let playerCash = parseInt(cash)
 let playerBank = parseInt(bank)
@@ -10,7 +10,8 @@ let error
 
 
 btn.addEventListener('click', () => {
-    transferAmount = popup.querySelector('#transferAmount').value;
+    let transferAmount = 0
+    transferAmount = popupBank.querySelector('#transferAmount').value
     if(checkbox.checked) { //amount taken from bank to player
         if(transferAmount == "") {
             error = "You must give an amount of cash to recieve!"
@@ -43,9 +44,9 @@ btn.addEventListener('click', () => {
                                 playerBank = result['bank']
                                 error = ""
                                 errorField.innerHTML = error
-                                console.log(result['cash'])
-                                console.log(result['bank'])
-
+                                popupBank.style.display = "none"
+                                blurred.style.display = "none"
+                                document.querySelector('body').style.overflow = "scroll"
                             })
                             .catch((error) => {
                             console.error('Error:', error);
@@ -89,8 +90,9 @@ btn.addEventListener('click', () => {
                                 playerBank = result['bank']
                                 error = ""
                                 errorField.innerHTML = error
-                                console.log(result['cash'])
-                                console.log(result['bank'])
+                                popupBank.style.display = "none"
+                                blurred.style.display = "none"
+                                document.querySelector('body').style.overflow = "scroll"
                             })
                             .catch((error) => {
                             console.error('Error:', error);
@@ -110,13 +112,13 @@ let activeBtn = document.querySelector('.btn__bank')
 let blurred = document.querySelector('.blur')
 
 activeBtn.addEventListener('click', () => {
-    popup.style.display = "flex"
+    popupBank.style.display = "flex"
     blurred.style.display = "flex"
     document.querySelector('body').style.overflow = "hidden"
 })
 
 blurred.addEventListener('click', () => {
-    popup.style.display = "none"
+    popupBank.style.display = "none"
     blurred.style.display = "none"
     document.querySelector('body').style.overflow = "scroll"
 })
